@@ -1,0 +1,108 @@
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Header -->
+                <div class="card-header bg-primary text-white py-3 rounded-top-4">
+                    <h3 class="mb-0 fw-bold">
+                        <i class="bi bi-pencil-square me-2"></i>
+                        Edit Student
+                    </h3>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-4">
+
+                    <form (ngSubmit)="updateStudent()" #studentForm="ngForm">
+
+                        <!-- Name -->
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control custom-input"
+                                [(ngModel)]="student.name"
+                                name="name"
+                                required
+                                placeholder="Enter student name">
+
+                        </div>
+
+                        <!-- Department -->
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control custom-input"
+                                [(ngModel)]="student.department"
+                                name="department"
+                                required
+                                placeholder="Enter department">
+
+                        </div>
+
+                        <!-- Age -->
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Age
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control custom-input"
+                                [(ngModel)]="student.age"
+                                name="age"
+                                required
+                                min="1"
+                                placeholder="Enter age">
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+
+                            <button
+                                type="button"
+                                routerLink="/"
+                                class="btn btn-outline-secondary px-4">
+
+                                Back
+
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary px-4 shadow-sm"
+                                [disabled]="studentForm.invalid">
+
+                                <i class="bi bi-check-circle me-2"></i>
+                                Update Student
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

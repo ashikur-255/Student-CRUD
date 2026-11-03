@@ -1,0 +1,94 @@
+<div class="container mt-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+      <div class="card shadow-lg border-0 rounded-4">
+
+        <!-- Header -->
+        <div class="card-header bg-success text-white">
+          <h4 class="mb-0">Add Student</h4>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body p-4">
+
+          <form #form="ngForm" (ngSubmit)="addStudent()">
+
+            <!-- Name -->
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="student.name"
+                name="name"
+                required
+                #name="ngModel">
+
+              <small class="text-danger" *ngIf="name.invalid && name.touched">
+                Name is required
+              </small>
+            </div>
+
+            <!-- Department -->
+            <div class="mb-3">
+              <label class="form-label">Department</label>
+
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="student.department"
+                name="department"
+                required
+                #department="ngModel">
+
+              <small class="text-danger" *ngIf="department.invalid && department.touched">
+                Department is required
+              </small>
+            </div>
+
+            <!-- Age -->
+            <div class="mb-3">
+              <label class="form-label">Age</label>
+
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="student.age"
+                name="age"
+                required
+                min="1"
+                max="100"
+                #age="ngModel">
+
+              <small class="text-danger" *ngIf="age.invalid && age.touched">
+                Enter valid age (1–100)
+              </small>
+            </div>
+
+            <!-- Button -->
+            <button
+              type="submit"
+              class="btn btn-success w-100"
+              [disabled]="form.invalid || loading">
+
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+
+              {{ loading ? 'Saving...' : 'Save Student' }}
+
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
